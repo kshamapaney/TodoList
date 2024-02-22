@@ -64,6 +64,7 @@ const App = () => {
 
         <div className="col-4 ps-0 ms-0 text-center">
           <div className=" right-side-box">
+    <h3>Add Tasks With Priority </h3>
             <AddTodoForm addTodo={addTodo} />
             <TodoList
               clearCompleted={clearCompleted}
