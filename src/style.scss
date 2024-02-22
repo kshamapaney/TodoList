@@ -1,0 +1,44 @@
+@import "bootstrap/scss/bootstrap";
+
+.App {
+  background-color: #000 !important;
+
+  .left-side-box {
+    overflow: hidden;
+    height: calc(100vh - 20px) !important;
+    background: url("./Assets/image1.jpeg") center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+  }
+  .right-side-box {
+    overflow: hidden;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(0, 204, 250, 1) 0%,
+      rgba(0, 204, 250, 1) 0%,
+      rgba(150, 207, 219, 1) 0%,
+      rgba(84, 194, 217, 1) 4%,
+      rgba(106, 211, 232, 1) 14%,
+      rgba(7, 46, 146, 1) 97%,
+      rgba(8, 25, 132, 1) 99%,
+      rgba(9, 9, 121, 1) 100%
+    );
+    height: calc(100vh - 25px) !important;
+    padding: 30px;
+    margin: 5px;
+    border-radius: 20px;
+  }
+}
+.list-hight {
+  height: calc(100vh - 180px) !important;
+  overflow-y: overlay;
+}
+
+.custom-input {
+  padding: 10px !important;
+  border-radius: 5px !important;
+  border: none !important;
+}
