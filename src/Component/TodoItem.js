@@ -1,5 +1,6 @@
 import React from "react";
 import { MdDeleteForever } from "react-icons/md";
+import { Badge, Checkbox, Button } from "antd";
 
 const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
   const handleCheckboxClick = () => {
@@ -21,26 +22,23 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
       <div className="card border border-info my-2">
         <div className="card-body d-flex align-items-center justify-content-between">
           <div className="align-items-center">
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={handleCheckboxClick}
-              className="me-2"
-            />
-            <span>{todo.text}</span>
+            <Checkbox checked={todo.completed} onChange={handleCheckboxClick}>
+              {todo.text}
+            </Checkbox>
           </div>
           <div className="align-items-center">
-            <span className="badge text-bg-info me-1">
-              {priorityStyles[todo.priority]}
-            </span>
-            {todo.completed == true && (
-              <span className="badge text-bg-success">completed</span>
-            )}
-            <MdDeleteForever
-              onClick={handleDeleteClick}
-              size={30}
-              className="cursor-pointer"
+            <Badge
+              className="me-1"
+              status="processing"
+              text={priorityStyles[todo.priority]}
             />
+
+            {todo.completed == true && (
+              <Badge status="success" text="completed" />
+            )}
+            <Button className="ms-1" onClick={handleDeleteClick} danger>
+              <MdDeleteForever size={20} />
+            </Button>
           </div>
         </div>
       </div>

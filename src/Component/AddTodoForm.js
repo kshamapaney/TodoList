@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-
+import { Button, Input, Select } from "antd";
 const AddTodoForm = ({ addTodo }) => {
   const [inputValue, setInputValue] = useState("");
   const [priority, setPriority] = useState("low");
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
-  const handlePriorityChange = (event) => {
-    setPriority(event.target.value);
+  const handlePriorityChange = (value) => {
+    setPriority(value);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,21 +19,40 @@ const AddTodoForm = ({ addTodo }) => {
 
   return (
     <form onSubmit={handleSubmit} className="d-flex justify-content-between ">
-      <input
+      <Input
         type="text"
         placeholder="Add a new task"
         value={inputValue}
         onChange={handleChange}
         className="w-100 custom-input me-1"
       />
-      <select value={priority} onChange={handlePriorityChange} className="custom-input">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-      </select>
-      <button type="submit" className="btn btn-success ms-1">
+
+      <Select
+        defaultValue="low"
+        style={{
+          width: 240,
+          height: 41,
+        }}
+        onChange={handlePriorityChange}
+        options={[
+          {
+            value: "low",
+            label: "Low",
+          },
+          {
+            value: "medium",
+            label: "Medium",
+          },
+          {
+            value: "high",
+            label: "High",
+          },
+        ]}
+      />
+
+      <Button type="primary" className="ms-1" htmlType="submit" size="large">
         Add
-      </button>
+      </Button>
     </form>
   );
 };
